@@ -1,4 +1,4 @@
-package com.example.cashout;
+package com.example.cashout.Fragment;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cashout.R;
 import com.example.cashout.databinding.FragmentRegisterBinding;
 
 public class RegisterFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.example.cashout;
+package com.example.cashout.Fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cashout.R;
 import com.example.cashout.databinding.FragmentPhotoBinding;
 
 public class PhotoFragment extends Fragment {

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.cashout.SplashFragment"
+        android:name="com.example.cashout.Fragment.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.cashout.LoginFragment"
+        android:name="com.example.cashout.Fragment.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.cashout.RegisterFragment"
+        android:name="com.example.cashout.Fragment.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/photoFragment"
-        android:name="com.example.cashout.PhotoFragment"
+        android:name="com.example.cashout.Fragment.PhotoFragment"
         android:label="fragment_photo"
         tools:layout="@layout/fragment_photo" >
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/completeRegisterFragment"
-        android:name="com.example.cashout.CompleteRegisterFragment"
+        android:name="com.example.cashout.Fragment.CompleteRegisterFragment"
         android:label="fragment_complete_register"
         tools:layout="@layout/fragment_complete_register" />
 </navigation>
