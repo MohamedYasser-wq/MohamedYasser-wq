@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">CashOut</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="get_better_with_cash_out">Get better with Cash Out</string>
+    <string name="get_better_with">Get better with</string>
+    <string name="cash_out">Cash Out</string>
+    <string name="next">Next</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">LOGIN</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="register">Register</string>
+    <string name="_01xxxxxxxxx">01XXXXXXXXX</string>
+    <string name="password">password</string>
+    <string name="phone_number">phone number</string>
+    <string name="make_sure_of_yor_data_to_login_successfully">Make sure of yor data to login successfully</string>
+    <string name="welcome">WELCOME</string>
+    <string name="align_the_document_within_the_frame">Align the document within the frame</string>
+    <string name="avoid_shadows_for_better_results">Avoid shadows for better results</string>
+    <string name="ensure_the_document_or_text_is_clear">Ensure the document or text is clear</string>
+    <string name="verify">Verify</string>
+    <string name="submit">Submit</string>
+</resources>
