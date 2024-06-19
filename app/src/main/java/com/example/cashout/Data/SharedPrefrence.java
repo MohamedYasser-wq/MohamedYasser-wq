@@ -7,9 +7,13 @@ public class SharedPrefrence {
 
     private static final String PREF_NAME = "UserPreferences";
     private static final String KEY_Trip_Id = "Trip_Id";
+    private static final String FIRST_TIME_KEY = "FirstTime";
+
     private static SharedPreferences sharedPreferences;
     private static SharedPreferences.Editor editor;
 
+    public static boolean isFirstTime() { return sharedPreferences.getBoolean(FIRST_TIME_KEY, true);}
+    public static void firstTimeDone(){sharedPreferences.edit().putBoolean(FIRST_TIME_KEY, false).apply();}
 
     public static void init(Context context) {
         if (sharedPreferences == null) {

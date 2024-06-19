@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/activity_animation_in"
+            app:exitAnim="@anim/activity_animation_out"/>
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -21,7 +23,18 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/activity_animation_in"
+            app:exitAnim="@anim/activity_animation_out"
+            />
+        <action
+            android:id="@+id/action_loginFragment_to_splashFragment"
+            app:destination="@id/splashFragment"
+            app:enterAnim="@anim/activity_animation_in"
+            app:exitAnim="@anim/activity_animation_out" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -30,7 +43,9 @@
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment_to_photoFragment"
-            app:destination="@id/photoFragment" />
+            app:destination="@id/photoFragment"
+            app:enterAnim="@anim/activity_animation_in"
+            app:exitAnim="@anim/activity_animation_out"/>
     </fragment>
     <fragment
         android:id="@+id/photoFragment"
@@ -39,11 +54,46 @@
         tools:layout="@layout/fragment_photo" >
         <action
             android:id="@+id/action_photoFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/activity_animation_in"
+            app:exitAnim="@anim/activity_animation_out"/>
+        <action
+            android:id="@+id/action_photoFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment" />
     </fragment>
     <fragment
         android:id="@+id/completeRegisterFragment"
         android:name="com.example.cashout.Fragment.CompleteRegisterFragment"
         android:label="fragment_complete_register"
-        tools:layout="@layout/fragment_complete_register" />
+        tools:layout="@layout/fragment_complete_register" >
+        <action
+            android:id="@+id/action_completeRegisterFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="com.example.cashout.Fragment.LoadingFragment"
+        android:label="fragment_loading"
+        tools:layout="@layout/fragment_loading" >
+        <action
+            android:id="@+id/action_loadingFragment_to_extractedDataFragment"
+            app:destination="@id/extractedDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/extractedDataFragment"
+        android:name="com.example.cashout.Fragment.ExtractedDataFragment"
+        android:label="fragment_extracted_data"
+        tools:layout="@layout/fragment_extracted_data" >
+        <action
+            android:id="@+id/action_extractedDataFragment_to_photoFragment"
+            app:destination="@id/photoFragment" />
+        <action
+            android:id="@+id/action_extractedDataFragment_to_completeRegisterFragment"
+            app:destination="@id/completeRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.cashout.Fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>

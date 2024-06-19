@@ -2,8 +2,16 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.CashOut" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowBackground" >@color/greenBg</item>
     </style>
 
     <style name="Theme.CashOut" parent="Base.Theme.CashOut" />
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+
+
+
 </resources>

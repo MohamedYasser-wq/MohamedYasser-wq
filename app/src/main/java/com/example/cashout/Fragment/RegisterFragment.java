@@ -29,7 +29,6 @@ public class RegisterFragment extends Fragment {
         binding=FragmentRegisterBinding.inflate(inflater);
         navController= Navigation.findNavController(container);
 
-
         binding.BtnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
