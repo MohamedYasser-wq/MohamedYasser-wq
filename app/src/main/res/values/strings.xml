@@ -20,4 +20,8 @@
     <string name="ensure_the_document_or_text_is_clear">Ensure the document or text is clear</string>
     <string name="verify">Verify</string>
     <string name="submit">Submit</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="your_balance">Your balance : 12000.9 EGP</string>
+    <string name="generate_otp">Generate OTP</string>
+    <string name="zero_amount">$0</string>
 </resources>

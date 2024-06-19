@@ -46,4 +46,10 @@
         android:name="com.example.cashout.Fragment.CompleteRegisterFragment"
         android:label="fragment_complete_register"
         tools:layout="@layout/fragment_complete_register" />
+    <fragment
+        android:id="@+id/cashOutFragment"
+        android:name="com.example.cashout.Fragment.CashOutFragment"
+        android:label="fragment_cash_out"
+        tools:layout="@layout/fragment_cash_out" />
+
 </navigation>
