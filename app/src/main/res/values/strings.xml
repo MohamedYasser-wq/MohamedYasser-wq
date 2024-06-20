@@ -20,6 +20,10 @@
     <string name="ensure_the_document_or_text_is_clear">Ensure the document or text is clear</string>
     <string name="verify">Verify</string>
     <string name="submit">Submit</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="your_balance">Your balance : 12000.9 EGP</string>
+    <string name="generate_otp">Generate OTP</string>
+    <string name="zero_amount">$0</string>
     <string name="please_wait_this_may_take_a_few_minutes">Please Wait , This may take a few minutes ....</string>
     <string name="verifying">Verifying \n</string>
     <string name="your_id_preview">Your ID Preview</string>

@@ -96,4 +96,10 @@
         android:name="com.example.cashout.Fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/cashOutFragment"
+        android:name="com.example.cashout.Fragment.CashOutFragment"
+        android:label="fragment_cash_out"
+        tools:layout="@layout/fragment_cash_out" />
+
 </navigation>
