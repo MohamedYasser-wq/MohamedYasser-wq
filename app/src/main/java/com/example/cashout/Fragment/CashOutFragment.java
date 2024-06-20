@@ -1,6 +1,7 @@
 package com.example.cashout.Fragment;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,24 +9,21 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.cashout.R;
 import com.example.cashout.databinding.FragmentCashOutBinding;
-import com.example.cashout.databinding.FragmentSplashBinding;
 
 public class CashOutFragment extends Fragment {
 
     private FragmentCashOutBinding binding;
     private NavController navController;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,21 +35,10 @@ public class CashOutFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        showKeyboard(binding.cashoutEditText);
+        binding.cashoutHomeBtn.setOnClickListener(view1 -> navController.navigate(R.id.action_cashOutFragment_to_homeFragment));
 
-        binding.cashoutHomeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // navigate to home page
-            }
-        });
-
-        binding.cashoutBackBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                requireActivity().getOnBackPressedDispatcher().onBackPressed();
-
-            }
-        });
+        binding.cashoutBackBtn.setOnClickListener(view12 -> navController.navigate(R.id.action_cashOutFragment_to_homeFragment));
 
         binding.cashoutGenerateOtpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,11 +48,10 @@ public class CashOutFragment extends Fragment {
 
                 String inputText = binding.cashoutEditText.getText().toString().trim();
                 if (!inputText.isEmpty()) {
-//                    double amount = Double.parseDouble(inputText);
-//                    OTPFragment otpFragment = OTPFragment.newInstance(amount);
-//                    Bundle args = new Bundle();
-//                    args.putDouble(ARG_DECIMAL_NUMBER, amount);
-//                    navController.navigate(R.id.OTPFragment, args);
+                    double amount = Double.parseDouble(inputText);
+                    Bundle bundle = new Bundle();
+                    bundle.putDouble("amount", amount);
+                    navController.navigate(R.id.action_cashOutFragment_to_OTPFragment,bundle);
                 } else {
                     Toast.makeText(requireContext(), "Please enter a number", Toast.LENGTH_SHORT).show();
                 }
@@ -73,6 +59,10 @@ public class CashOutFragment extends Fragment {
         });
 
     }
-
+    private void showKeyboard(EditText e){
+        e.requestFocus();
+        InputMethodManager imm = (InputMethodManager) e.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(e,InputMethodManager.SHOW_IMPLICIT);
+    }
 
 }

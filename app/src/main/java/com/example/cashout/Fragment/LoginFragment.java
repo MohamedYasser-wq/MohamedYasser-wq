@@ -19,11 +19,7 @@ public class LoginFragment extends Fragment {
     private NavController navController;
 
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,13 +29,9 @@ public class LoginFragment extends Fragment {
         if(SharedPrefrence.isFirstTime()){
             navController.navigate(R.id.action_loginFragment_to_splashFragment);
         }
-
-        binding.registerLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_loginFragment_to_registerFragment);
-            }
-        });
+        //مؤقتاً
+        binding.loginButton.setOnClickListener(v->navController.navigate(R.id.action_loginFragment_to_homeFragment));
+        binding.registerLink.setOnClickListener(v -> navController.navigate(R.id.action_loginFragment_to_registerFragment));
 
 
         return binding.getRoot();

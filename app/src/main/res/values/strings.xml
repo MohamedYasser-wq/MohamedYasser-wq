@@ -28,4 +28,16 @@
     <string name="verifying">Verifying \n</string>
     <string name="your_id_preview">Your ID Preview</string>
     <string name="take_another_picture">Take another picture</string>
+    <string name="notifications">Notifications</string>
+    <string name="cash_out_btn">Cash Out</string>
+    <string name="recieve_transaction">Recieve Transaction</string>
+    <string name="transaction_received_from">Transaction Received from:</string>
+    <string name="amount">Amount :</string>
+    <string name="newText">New</string>
+    <string name="oldText">Old</string>
+    <string name="your_code">YOUR CODE</string>
+    <string name="otp_description">Redirect to your nearest Ahly momken pickup point to get your cash</string>
+    <string name="codeValid">Code is ONLY valid for 72 hrs</string>
+    <string name="confirm">Confirm</string>
+    <string name="cashed_out_successfully">Cashed Out Successfully</string>
 </resources>

@@ -3,44 +3,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.HomeFragment"
     android:background="@color/grey"
     android:orientation="vertical"
-    >
+    tools:context=".Fragment.HomeFragment">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textSize="32sp"
-        android:text="Balance"
         android:layout_marginTop="55dp"
         android:layout_marginBottom="10dp"
-        />
+        android:gravity="center"
+        android:text="Balance"
+        android:textAlignment="center"
+        android:textSize="32sp" />
+
     <TextView
         android:id="@+id/balanceAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:gravity="center"
+        android:textAlignment="center"
         android:textSize="32sp"
-        tools:text ="244.5 EGP"
-        />
-    <LinearLayout
+        tools:text="244.5 EGP" />
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/white_rounded_box"
-        android:orientation="vertical"
-        android:paddingHorizontal="10dp"
-        android:paddingTop="20dp"
-        >
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/transactionsRecyclerView"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/transaction"
-            />
-    </LinearLayout>
+            android:layout_height="500dp"
+            android:layout_gravity="center"
+            android:background="@drawable/white_rounded_box"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp"
+            android:paddingTop="20dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/transactionsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/transaction" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/white_rounded_box"
+            android:backgroundTint="@color/light_grey"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/notifications_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginEnd="40dp"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/notifications_icon"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notifications" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cashout_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginStart="40dp"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/cashout_icon"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cash_out_btn" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
 </LinearLayout>

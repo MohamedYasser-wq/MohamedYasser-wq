@@ -10,22 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.cashout.databinding.FragmentLoadingBinding;
+import com.example.cashout.R;
+import com.example.cashout.databinding.FragmentNotificationDetailsBinding;
 
-
-public class LoadingFragment extends Fragment {
-    private FragmentLoadingBinding binding;
-    private NavController navController;
-    @Override
-    public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);}
-
+public class NotificationDetailsFragment extends Fragment {
+    FragmentNotificationDetailsBinding binding;
+    NavController navController;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        binding=FragmentLoadingBinding.inflate(inflater);
+        binding = FragmentNotificationDetailsBinding.inflate(inflater);
         navController = Navigation.findNavController(container);
-
+        binding.back.setOnClickListener(v -> navController.navigate(R.id.action_notificationDetailsFragment_to_notificationsFragment));
         return binding.getRoot();
     }
 }

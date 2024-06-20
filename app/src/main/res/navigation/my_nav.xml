@@ -13,8 +13,8 @@
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:enterAnim="@anim/activity_animation_in"
-            app:exitAnim="@anim/activity_animation_out"/>
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -24,17 +24,18 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment"
-            app:enterAnim="@anim/activity_animation_in"
-            app:exitAnim="@anim/activity_animation_out"
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"
             />
         <action
             android:id="@+id/action_loginFragment_to_splashFragment"
             app:destination="@id/splashFragment"
-            app:enterAnim="@anim/activity_animation_in"
-            app:exitAnim="@anim/activity_animation_out" />
+            />
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -44,8 +45,8 @@
         <action
             android:id="@+id/action_registerFragment_to_photoFragment"
             app:destination="@id/photoFragment"
-            app:enterAnim="@anim/activity_animation_in"
-            app:exitAnim="@anim/activity_animation_out"/>
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
     </fragment>
     <fragment
         android:id="@+id/photoFragment"
@@ -55,11 +56,13 @@
         <action
             android:id="@+id/action_photoFragment_to_registerFragment"
             app:destination="@id/registerFragment"
-            app:enterAnim="@anim/activity_animation_in"
-            app:exitAnim="@anim/activity_animation_out"/>
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
         <action
             android:id="@+id/action_photoFragment_to_loadingFragment"
-            app:destination="@id/loadingFragment" />
+            app:destination="@id/loadingFragment"
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
     </fragment>
     <fragment
         android:id="@+id/completeRegisterFragment"
@@ -68,7 +71,9 @@
         tools:layout="@layout/fragment_complete_register" >
         <action
             android:id="@+id/action_completeRegisterFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
     </fragment>
     <fragment
         android:id="@+id/loadingFragment"
@@ -77,7 +82,9 @@
         tools:layout="@layout/fragment_loading" >
         <action
             android:id="@+id/action_loadingFragment_to_extractedDataFragment"
-            app:destination="@id/extractedDataFragment" />
+            app:destination="@id/extractedDataFragment"
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
     </fragment>
     <fragment
         android:id="@+id/extractedDataFragment"
@@ -86,20 +93,101 @@
         tools:layout="@layout/fragment_extracted_data" >
         <action
             android:id="@+id/action_extractedDataFragment_to_photoFragment"
-            app:destination="@id/photoFragment" />
+            app:destination="@id/photoFragment"
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
         <action
             android:id="@+id/action_extractedDataFragment_to_completeRegisterFragment"
-            app:destination="@id/completeRegisterFragment" />
+            app:destination="@id/completeRegisterFragment"
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.cashout.Fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home"
+        >
+        <action
+            android:id="@+id/action_homeFragment_to_cashOutFragment"
+            app:destination="@id/cashOutFragment"
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
+        <action
+            android:id="@+id/action_homeFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
+    </fragment>
     <fragment
         android:id="@+id/cashOutFragment"
         android:name="com.example.cashout.Fragment.CashOutFragment"
         android:label="fragment_cash_out"
-        tools:layout="@layout/fragment_cash_out" />
+        tools:layout="@layout/fragment_cash_out" >
+        <action
+            android:id="@+id/action_cashOutFragment_to_OTPFragment"
+            app:destination="@id/OTPFragment"
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
+        <action
+            android:id="@+id/action_cashOutFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/screen_animation_in_back_version"
+            app:exitAnim="@anim/screen_animation_out_back_version"/>
+    </fragment>
+    <fragment
+        android:id="@+id/notificationDetailsFragment"
+        android:name="com.example.cashout.Fragment.NotificationDetailsFragment"
+        android:label="fragment_notification_details"
+        tools:layout="@layout/fragment_notification_details" >
+        <action
+            android:id="@+id/action_notificationDetailsFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:enterAnim="@anim/screen_animation_in_back_version"
+            app:exitAnim="@anim/screen_animation_out_back_version"/>
+    </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.example.cashout.Fragment.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" >
+        <action
+            android:id="@+id/action_notificationsFragment_to_notificationDetailsFragment"
+            app:destination="@id/notificationDetailsFragment"
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
+        <action
+            android:id="@+id/action_notificationsFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/screen_animation_in_back_version"
+            app:exitAnim="@anim/screen_animation_out_back_version"/>
+    </fragment>
+    <fragment
+        android:id="@+id/OTPFragment"
+        android:name="com.example.cashout.Fragment.OTPFragment"
+        android:label="fragment_o_t_p"
+        tools:layout="@layout/fragment_o_t_p" >
+        <action
+            android:id="@+id/action_OTPFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment"
+            app:enterAnim="@anim/screen_animation_in"
+            app:exitAnim="@anim/screen_animation_out"/>
+        <action
+            android:id="@+id/action_OTPFragment_to_cashOutFragment"
+            app:destination="@id/cashOutFragment"
+            app:enterAnim="@anim/screen_animation_in_back_version"
+            app:exitAnim="@anim/screen_animation_out_back_version"/>
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.example.cashout.Fragment.ConfirmationFragment"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation" >
+        <action
+            android:id="@+id/action_confirmationFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/screen_animation_in_back_version"
+            app:exitAnim="@anim/screen_animation_out_back_version"/>
+    </fragment>
 
 </navigation>

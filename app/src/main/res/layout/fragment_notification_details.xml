@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.NotificationDetailsFragment"
+    android:orientation="vertical"
+    >
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/black_baseline_arrow_back_24"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="60dp"
+        android:src="@drawable/momknspace_white"
+        android:layout_marginBottom="20dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="27sp"
+        android:text="@string/recieve_transaction"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:layout_marginBottom="25dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/white_rounded_box"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingHorizontal="5dp"
+        >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        tools:text="1 June 2025"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/date_as_title"
+        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/transaction_received_from"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginStart="7dp"
+            />
+
+        <TextView
+            android:id="@+id/senderEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="7dp"
+            android:textSize="18sp"
+            tools:text="fcis@asu.edu.eg"
+
+            />
+
+        <View
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/horizontal_line"
+        android:layout_marginHorizontal="5dp"
+        />
+        <TextView
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/amount"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginStart="7dp"
+            tools:text="Amount : 5000 EGP"
+            />
+
+        <View
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/horizontal_line"
+            android:layout_marginHorizontal="5dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginStart="7dp"
+            tools:text="Note : "
+            />
+        <TextView
+            android:id="@+id/note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginStart="7dp"
+            tools:text="@tools:sample/lorem/random"
+            />
+
+
+        <View
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/horizontal_line"
+            android:layout_marginHorizontal="5dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>

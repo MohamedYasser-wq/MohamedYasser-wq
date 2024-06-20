@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.OTPFragment"
+    android:orientation="vertical"
+    >
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="13dp"
+        android:src="@drawable/momknspace_white"
+        />
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_margin="13dp"
+        android:src="@drawable/black_baseline_arrow_back_24"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/white_rounded_box"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingHorizontal="10dp"
+        >
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="39sp"
+            android:text="@string/your_code"
+            />
+        <TextView
+            android:layout_marginTop="80dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            tools:text="2 0 0 0"
+            android:background="@drawable/otp_rounded_box"
+            android:padding="20dp"
+            />
+
+        <TextView
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/greyText"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:text="@string/otp_description" />
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/greenText"
+            android:textAlignment="center"
+            android:textSize="26sp"
+            android:text="@string/codeValid" />
+        <Button
+            android:id="@+id/confirmBtn"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:paddingVertical="15dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
+            android:textSize="20sp"
+            android:backgroundTint="#059F6B"
+            />
+    </LinearLayout>
+
+</LinearLayout>
