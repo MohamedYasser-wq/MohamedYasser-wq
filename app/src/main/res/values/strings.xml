@@ -40,4 +40,6 @@
     <string name="codeValid">Code is ONLY valid for 72 hrs</string>
     <string name="confirm">Confirm</string>
     <string name="cashed_out_successfully">Cashed Out Successfully</string>
+    <string name="balance">Balance</string>
+    <string name="transfer">Transfer</string>
 </resources>
