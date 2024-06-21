@@ -33,14 +33,20 @@ public class TransactionsAdapter extends ListAdapter<Transaction, TransactionsAd
         public void bind(Transaction transaction, TransactionClick transactionClick) {
             if(transaction.getType().equals("Cash Out")){
                 bind.transactionIcon.setImageResource(R.drawable.cashout_transaction_icon);
+                bind.transactionType.setTextColor(bind.getRoot().getContext().getColor(R.color.red));
+                bind.amount.setTextColor(bind.getRoot().getContext().getColor(R.color.red));
+                bind.date.setTextColor(bind.getRoot().getContext().getColor(R.color.red));
             }else{
                 bind.transactionIcon.setImageResource(R.drawable.transfer_transaction_icon);
+                bind.transactionType.setTextColor(bind.getRoot().getContext().getColor(R.color.green));
+                bind.amount.setTextColor(bind.getRoot().getContext().getColor(R.color.green));
+                bind.date.setTextColor(bind.getRoot().getContext().getColor(R.color.green));
             }
             SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
             String dateFormatted = formatter.format(transaction.getDate());
             bind.date.setText(dateFormatted);
             bind.transactionType.setText(transaction.getType() +" - " + transaction.getId());
-            bind.amount.setText(transaction.getAmount() + " EGP");
+            bind.amount.setText(transaction.getAmount() + "EGP");
             bind.getRoot().setOnClickListener(v -> transactionClick.onClick(transaction));
         }
 
