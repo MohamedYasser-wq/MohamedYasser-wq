@@ -42,4 +42,9 @@
     <string name="cashed_out_successfully">Cashed Out Successfully</string>
     <string name="balance">Balance</string>
     <string name="transfer">Transfer</string>
+    <string name="transactionWithId">%s - %s</string>
+    <string name="your_transactions">Your Transactions</string>
+    <string name="all">All</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
 </resources>

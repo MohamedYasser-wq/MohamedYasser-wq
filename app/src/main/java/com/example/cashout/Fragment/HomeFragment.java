@@ -17,15 +17,26 @@ import com.example.cashout.Adapters.TransactionsAdapter;
 import com.example.cashout.R;
 import com.example.cashout.databinding.FragmentHomeBinding;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class HomeFragment extends Fragment {
 
    private FragmentHomeBinding binding;
    private NavController navController;
-
+   private ArrayList<Transaction> transactions = new ArrayList<>();
+   private List<Transaction> mockTransactions = List.of(new Transaction(new Date(),2000, "12445", "Transfer"),
+           new Transaction(new Date(),2500, "12495", "Transfer"),
+           new Transaction(new Date(),120, "13305", "Transfer"),
+           new Transaction(new Date(),20000, "10524", "Cash Out"),
+           new Transaction(new Date(),2000, "12415", "Transfer"),
+           new Transaction(new Date(),2500, "12435", "Transfer"),
+           new Transaction(new Date(),120, "12405", "Cash Out"),
+           new Transaction(new Date(),20000, "12425", "Cash Out")
+   );
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,15 +53,26 @@ public class HomeFragment extends Fragment {
         TransactionsAdapter adapter = new TransactionsAdapter(transactionClick);
 
         binding.transactionsRecyclerView.setAdapter(adapter);
-        adapter.submitList(List.of(new Transaction(new Date(),2000, "id1", "Transfer"),
-                new Transaction(new Date(),2500, "id2", "Transfer"),
-                new Transaction(new Date(),120, "id3", "Transfer"),
-                new Transaction(new Date(),20000, "id4", "Receive"),
-                new Transaction(new Date(),2000, "id5", "Transfer"),
-                new Transaction(new Date(),2500, "id6", "Transfer"),
-                new Transaction(new Date(),120, "id7", "Transfer"),
-                new Transaction(new Date(),20000, "id8", "Receive")
-        ));
+        adapter.submitList(mockTransactions);
+        binding.allTransactions.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                adapter.submitList(null);
+                adapter.submitList(mockTransactions);
+                binding.transactionsRecyclerView.scrollToPosition(0);
+            }
+        });
+        binding.transferTransactions.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                adapter.submitList(mockTransactions.stream().filter(t -> t.getType().equals("Transfer")).collect(Collectors.toList()));
+                binding.transactionsRecyclerView.scrollToPosition(0);
+            }
+        });
+        binding.cashoutTransactions.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                adapter.submitList(mockTransactions.stream().filter(t -> t.getType().equals("Cash Out")).collect(Collectors.toList()));
+                binding.transactionsRecyclerView.scrollToPosition(0);
+            }
+        });
         return binding.getRoot();
     }
 }
