@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".Fragment.NotificationsFragment"
-    >
+    tools:context=".Fragment.NotificationsFragment">
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -28,16 +28,23 @@
         android:layout_marginTop="16dp"
         android:textSize="24sp"
         />
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
         android:layout_marginTop="25dp"
         android:background="@drawable/white_rounded_box"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:paddingTop="10dp"
         android:paddingHorizontal="5dp"
         >
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +59,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/notification"
-            tools:itemCount="2"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="2"
+            android:nestedScrollingEnabled="false"
+            />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +77,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/notification"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:nestedScrollingEnabled="false"
             />
 
-    </LinearLayout>
+    </LinearLayout></androidx.core.widget.NestedScrollView>
 </LinearLayout>

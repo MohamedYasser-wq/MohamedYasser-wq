@@ -1,13 +1,13 @@
-package com.example.cashout.Adapters;
+package com.example.cashout.Data.Models;
 
 import java.util.Date;
 
-public class Notification {
+public class Transaction {
     private String id;
     private String type;
     private Date date;
     private double amount;
-    public Notification(Date date, double amount, String id, String type) {
+    public Transaction(Date date, double amount, String id, String type) {
         this.date = date;
         this.amount = amount;
         this.id = id;

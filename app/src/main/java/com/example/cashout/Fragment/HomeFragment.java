@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.cashout.Adapters.Transaction;
+import com.example.cashout.Data.Models.Transaction;
 import com.example.cashout.Adapters.TransactionClick;
 import com.example.cashout.Adapters.TransactionsAdapter;
 import com.example.cashout.R;
@@ -44,12 +44,7 @@ public class HomeFragment extends Fragment {
         navController = Navigation.findNavController(container);
         binding.cashoutBtn.setOnClickListener(v -> navController.navigate(R.id.action_homeFragment_to_cashOutFragment));
         binding.notificationsBtn.setOnClickListener(v -> navController.navigate(R.id.action_homeFragment_to_notificationsFragment));
-        TransactionClick transactionClick = new TransactionClick(new Consumer<Transaction>() {
-            @Override
-            public void accept(Transaction transaction) {
-                Toast.makeText(requireContext(), transaction.getId(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        TransactionClick transactionClick = new TransactionClick(transaction -> {Toast.makeText(requireContext(), transaction.getId(), Toast.LENGTH_SHORT).show();});
         TransactionsAdapter adapter = new TransactionsAdapter(transactionClick);
 
         binding.transactionsRecyclerView.setAdapter(adapter);

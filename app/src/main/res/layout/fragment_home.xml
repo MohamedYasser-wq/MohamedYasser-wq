@@ -146,7 +146,18 @@
                 android:layout_marginEnd="40dp"
                 android:gravity="center"
                 android:orientation="vertical">
-
+                <TextView
+                    android:id="@+id/newNotificationsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|end"
+                    tools:text="12"
+                    android:textColor="@color/white"
+                    android:background="@drawable/circle"
+                    android:padding="4dp"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

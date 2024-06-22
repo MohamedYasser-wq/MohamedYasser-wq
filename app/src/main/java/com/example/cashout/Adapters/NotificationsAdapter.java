@@ -1,18 +1,22 @@
 package com.example.cashout.Adapters;
 
+import static com.example.cashout.helpers.DateUtils.formatDate;
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cashout.R;
+import com.example.cashout.Data.Models.Notification;
 import com.example.cashout.databinding.NotificationBinding;
-import com.example.cashout.databinding.TransactionBinding;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class NotificationsAdapter extends ListAdapter<Notification, NotificationsAdapter.NotificationVH> {
 
@@ -31,8 +35,10 @@ public class NotificationsAdapter extends ListAdapter<Notification, Notification
             this.bind = bind;
         }
 
-        public void bind(Notification transaction, NotificationClick transactionClick) {
-
+        public void bind(Notification notification, NotificationClick notificationClick) {
+            bind.notificationTitle.setText(notification.getTitle());
+            bind.notificationDate.setText(formatDate(notification.getDate()));
+            bind.getRoot().setOnClickListener(n -> notificationClick.onClick(notification));
         }
 
         public static NotificationVH from(ViewGroup parent) {
@@ -64,5 +70,6 @@ public class NotificationsAdapter extends ListAdapter<Notification, Notification
     public void onBindViewHolder(@NonNull NotificationVH holder, int position) {
         holder.bind(getItem(position), notificationClick);
     }
+
 }
 

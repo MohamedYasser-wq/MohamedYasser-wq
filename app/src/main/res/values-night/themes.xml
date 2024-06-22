@@ -3,6 +3,7 @@
     <style name="Base.Theme.CashOut" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <item name="android:windowBackground">@color/greenBg</item>
+        <item name="android:statusBarColor">@color/greenBg</item>
     </style>
 
 </resources>

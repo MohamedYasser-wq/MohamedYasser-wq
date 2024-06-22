@@ -1,17 +1,22 @@
-package com.example.cashout.Adapters;
+package com.example.cashout.Data.Models;
 
 import java.util.Date;
 
-public class Transaction {
+public class Notification {
     private String id;
     private String type;
     private Date date;
     private double amount;
-    public Transaction(Date date, double amount, String id, String type) {
+    private String note;
+    private String title;
+
+    public Notification(String id,String title ,Date date, double amount, String type, String note) {
         this.date = date;
         this.amount = amount;
         this.id = id;
         this.type = type;
+        this.note = note;
+        this.title = title;
     }
 
     public String getType() {
@@ -45,4 +50,23 @@ public class Transaction {
     public void setAmount(double amount) {
         this.amount = amount;
     }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+
+
 }

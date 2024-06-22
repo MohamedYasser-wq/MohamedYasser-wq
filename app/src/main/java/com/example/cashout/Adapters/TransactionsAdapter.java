@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cashout.Data.Models.Transaction;
 import com.example.cashout.R;
 import com.example.cashout.databinding.TransactionBinding;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class TransactionsAdapter extends ListAdapter<Transaction, TransactionsAdapter.TransactionVH> {
@@ -31,17 +31,19 @@ public class TransactionsAdapter extends ListAdapter<Transaction, TransactionsAd
         }
 
         public void bind(Transaction transaction, TransactionClick transactionClick) {
+            int icon, color;
             if(transaction.getType().equals("Cash Out")){
-                bind.transactionIcon.setImageResource(R.drawable.cashout_transaction_icon);
-                bind.transactionType.setTextColor(bind.getRoot().getContext().getColor(R.color.red));
-                bind.amount.setTextColor(bind.getRoot().getContext().getColor(R.color.red));
-                bind.date.setTextColor(bind.getRoot().getContext().getColor(R.color.red));
+                icon = R.drawable.cashout_transaction_icon;
+                color = bind.getRoot().getContext().getColor(R.color.red);
+
             }else{
-                bind.transactionIcon.setImageResource(R.drawable.transfer_transaction_icon);
-                bind.transactionType.setTextColor(bind.getRoot().getContext().getColor(R.color.green));
-                bind.amount.setTextColor(bind.getRoot().getContext().getColor(R.color.green));
-                bind.date.setTextColor(bind.getRoot().getContext().getColor(R.color.green));
+                icon = R.drawable.transfer_transaction_icon;
+                color = bind.getRoot().getContext().getColor(R.color.green);
             }
+            bind.transactionIcon.setImageResource(icon);
+            bind.transactionType.setTextColor(color);
+            bind.amount.setTextColor(color);
+            bind.date.setTextColor(color);
             SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
             String dateFormatted = formatter.format(transaction.getDate());
             bind.date.setText(dateFormatted);

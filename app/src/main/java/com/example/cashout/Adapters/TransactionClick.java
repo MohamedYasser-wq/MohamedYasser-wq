@@ -1,5 +1,7 @@
 package com.example.cashout.Adapters;
 
+import com.example.cashout.Data.Models.Transaction;
+
 import java.util.function.Consumer;
 
 public class TransactionClick {
