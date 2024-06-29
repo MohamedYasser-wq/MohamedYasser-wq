@@ -47,4 +47,6 @@
     <string name="all">All</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
+    <string name="national_id">National Id</string>
+    <string name="xxxxxxxxxxxxxx">xxxxxxxxxxxxxx</string>
 </resources>

@@ -42,11 +42,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
-        android:text="@string/phone_number"
+        android:text="@string/national_id"
         android:layout_marginStart="18dp"
         android:textColor="#4A4A4A"
         android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="@+id/phone_number"
+        app:layout_constraintStart_toStartOf="@+id/NationalId"
         app:layout_constraintTop_toBottomOf="@+id/subtitle_label" />
 
     <TextView
@@ -59,14 +59,14 @@
         android:textColor="#4A4A4A"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+        app:layout_constraintTop_toBottomOf="@+id/NationalId" />
     <EditText
-        android:id="@+id/phone_number"
+        android:id="@+id/NationalId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/edt_shape"
-        android:hint="@string/_01xxxxxxxxx"
-        android:inputType="phone"
+        android:hint="@string/xxxxxxxxxxxxxx"
+        android:inputType="number"
         android:paddingStart="15dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
