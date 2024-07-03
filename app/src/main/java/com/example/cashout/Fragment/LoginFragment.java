@@ -85,14 +85,14 @@ public class LoginFragment extends Fragment {
     private void Login(RequestLogin request)
     {
         authenticationViewModel.login(request);
-        authenticationViewModel.mutableLiveDataLogin.observe(this, new Observer<ResponseLogin>() {
+        authenticationViewModel.mutableLiveData1.observe(this, new Observer<ResponseLogin>() {
             @Override
             public void onChanged(ResponseLogin responseLogin) {
                 Log.e("TAG", "onChanged: Done ");
 
             }
         });
-        authenticationViewModel.mutableLiveDataLoginError.observe(this, new Observer<String>() {
+        authenticationViewModel.mutableLiveDataError1.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 Log.e("TAG", "onChanged: Error ");

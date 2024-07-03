@@ -62,6 +62,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edt_shape"
         android:inputType="phone"
+        android:textColor="@color/black"
         android:paddingStart="15dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +76,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edt_shape"
         android:layout_marginTop="5dp"
+        android:textColor="@color/black"
         android:inputType="textPassword"
         android:paddingStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirm Password"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_marginTop="15dp"
@@ -103,6 +105,7 @@
         android:background="@drawable/edt_shape"
         android:inputType="textPassword"
         android:paddingStart="15dp"
+        android:textColor="@color/black"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@+id/password"
         app:layout_constraintStart_toStartOf="@+id/password"
@@ -110,7 +113,7 @@
         app:layout_constraintWidth_percent="0.8" />
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/Btn_Submit"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:backgroundTint="#03875B"

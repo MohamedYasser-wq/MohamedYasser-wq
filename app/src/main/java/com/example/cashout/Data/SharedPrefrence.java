@@ -6,7 +6,13 @@ import android.content.SharedPreferences;
 public class SharedPrefrence {
 
     private static final String PREF_NAME = "UserPreferences";
-    private static final String KEY_Trip_Id = "Trip_Id";
+    private static final String KEY_FirstName = "FirstName";
+    private static final String KEY_SecondName = "SecondName";
+    private static final String KEY_Gender = "Gender";
+    private static final String KEY_National_Id = "National_Id";
+    private static final String KEY_Address = "Address";
+    private static final String KEY_BirthDay = "BirthDay";
+    private static final String KEY_imageUri = "imageUri";
     private static final String FIRST_TIME_KEY = "FirstTime";
 
     private static SharedPreferences sharedPreferences;
@@ -22,12 +28,62 @@ public class SharedPrefrence {
         }
     }
 
-    public static void setUserHistoryGoing(String date) {
-        editor.putString(KEY_Trip_Id, date).apply();
+    public static void setFirstName(String FirstName) {
+        editor.putString(KEY_FirstName, FirstName).apply();
     }
 
-    public static String getUserHistoryGoing() {
-        return sharedPreferences.getString(KEY_Trip_Id, "");
+    public static String getFirstName() {
+        return sharedPreferences.getString(KEY_FirstName, "");
+    }
+
+
+    public static void setSecondName(String SecondName) {
+        editor.putString(KEY_SecondName, SecondName).apply();
+    }
+
+    public static String getSecondName() {
+        return sharedPreferences.getString(KEY_SecondName, "");
+    }
+
+    public static void setGender(String Gender) {
+        editor.putString(KEY_Gender, Gender).apply();
+    }
+
+    public static String getGender() {
+        return sharedPreferences.getString(KEY_Gender, "");
+    }
+
+    public static void setNational_Id(String National_Id) {
+        editor.putString(KEY_National_Id, National_Id).apply();
+    }
+
+    public static String getNational_Id() {
+        return sharedPreferences.getString(KEY_National_Id, "");
+    }
+
+    public static void setAddress(String Address) {
+        editor.putString(KEY_Address, Address).apply();
+    }
+
+    public static String getAddress() {
+        return sharedPreferences.getString(KEY_Address, "");
+    }
+
+    public static void setBirthDay(String BirthDay) {
+        editor.putString(KEY_BirthDay, BirthDay).apply();
+    }
+
+    public static String getBirthDay() {
+        return sharedPreferences.getString(KEY_BirthDay, "");
+    }
+
+
+    public static void setImageUri(String KEY_imageUri) {
+        editor.putString(KEY_imageUri, KEY_imageUri).apply();
+    }
+
+    public static String getImageUri() {
+        return sharedPreferences.getString(KEY_imageUri, "");
     }
 
 }

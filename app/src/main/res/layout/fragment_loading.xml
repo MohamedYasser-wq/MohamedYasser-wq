@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Fragment.LoadingFragment">
 
@@ -21,13 +22,17 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp">
-        <TextView
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Btn_continue2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="34sp"
-            android:text="@string/verifying" />
+            android:text="Verify"
+            app:backgroundTint="#BFBDBE"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:enabled="false"
+            />
+
 
         <TextView
             android:layout_width="match_parent"

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cashout.Data.SharedPrefrence;
 import com.example.cashout.R;
 import com.example.cashout.databinding.FragmentExtractedDataBinding;
 
@@ -18,9 +19,7 @@ import java.util.Date;
 public class ExtractedDataFragment extends Fragment {
     private FragmentExtractedDataBinding binding;
     private NavController navController;
-    private String firstName, lastName, address, NID;
-    private Date birthDate;
-    private Gender gender;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,28 +33,34 @@ public class ExtractedDataFragment extends Fragment {
         binding = FragmentExtractedDataBinding.inflate(inflater);
         navController = Navigation.findNavController(container);
         fillFields();
-        binding.next.setOnClickListener(v -> navController.navigate(R.id.action_extractedDataFragment_to_completeRegisterFragment));
-        binding.retryPicture.setOnClickListener(v -> navController.navigate(R.id.action_extractedDataFragment_to_photoFragment));
+
+        binding.next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_extractedDataFragment_to_completeRegisterFragment);
+            }
+        });
+
+        binding.retryPicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_extractedDataFragment_to_photoFragment);
+            }
+        });
+
+
         return binding.getRoot();
     }
 
     private void fillFields() {
-        getApiResponse();
-        binding.firstName.setText(firstName);
-        binding.lastName.setText(lastName);
-        binding.address.setText(address);
-        binding.NID.setText(NID);
-        binding.birthDate.setText(birthDate.toString());
-        binding.gender.setText(gender.name());
+        binding.firstName.setText(SharedPrefrence.getFirstName());
+        binding.lastName.setText(SharedPrefrence.getSecondName());
+        binding.address.setText(SharedPrefrence.getAddress());
+        binding.NID.setText(SharedPrefrence.getNational_Id());
+        binding.birthDate.setText(SharedPrefrence.getBirthDay());
+        binding.gender.setText(SharedPrefrence.getGender());
 
     }
 
-    private void getApiResponse() {
-        //TODO get api response
-        firstName = "elly gay mn el api"; //and so on for all fields
-    }
-}
 
-enum Gender {
-    MALE, FEMALE
 }
