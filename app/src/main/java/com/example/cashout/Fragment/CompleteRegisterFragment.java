@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,20 +87,24 @@ public class CompleteRegisterFragment extends Fragment {
     private void Register(RequestRegister requestRegister) {
 
         authenticationViewModel.Register(requestRegister);
-        authenticationViewModel.mutableLiveData2.observe(this, new Observer<String>() {
+        authenticationViewModel.mutableLiveDataRegisterSuccess.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
 
-                navController.navigate(R.id.action_completeRegisterFragment_to_homeFragment);
+                Log.e("TAG", "onChanged: " + s);
+                Toast.makeText(requireContext(), s+ "Now You Can Login", Toast.LENGTH_SHORT).show();
+                navController.navigate(R.id.action_completeRegisterFragment_to_loginFragment);
 
             }
         });
 
-        authenticationViewModel.mutableLiveDataError2.observe(this, new Observer<String>() {
+        authenticationViewModel.mutableLiveDataRegisterError.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
+                Log.e("TAGg", "onChanged: " + s);
+                Toast.makeText(requireContext(), s, Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
+
             }
 
         });

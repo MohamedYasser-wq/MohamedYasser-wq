@@ -13,13 +13,11 @@ public class SharedPrefrence {
     private static final String KEY_Address = "Address";
     private static final String KEY_BirthDay = "BirthDay";
     private static final String KEY_imageUri = "imageUri";
+    private static final String User_Token = "Token";
     private static final String FIRST_TIME_KEY = "FirstTime";
 
     private static SharedPreferences sharedPreferences;
     private static SharedPreferences.Editor editor;
-
-    public static boolean isFirstTime() { return sharedPreferences.getBoolean(FIRST_TIME_KEY, true);}
-    public static void firstTimeDone(){sharedPreferences.edit().putBoolean(FIRST_TIME_KEY, false).apply();}
 
     public static void init(Context context) {
         if (sharedPreferences == null) {
@@ -28,6 +26,8 @@ public class SharedPrefrence {
         }
     }
 
+    public static boolean isFirstTime() { return sharedPreferences.getBoolean(FIRST_TIME_KEY, true);}
+    public static void firstTimeDone(){sharedPreferences.edit().putBoolean(FIRST_TIME_KEY, false).apply();}
     public static void setFirstName(String FirstName) {
         editor.putString(KEY_FirstName, FirstName).apply();
     }
@@ -85,5 +85,15 @@ public class SharedPrefrence {
     public static String getImageUri() {
         return sharedPreferences.getString(KEY_imageUri, "");
     }
+
+
+    public static void setUserToken(String Token) {
+        editor.putString(User_Token, Token).apply();
+    }
+
+    public static String getUser_Token() {
+        return sharedPreferences.getString(User_Token, "");
+    }
+
 
 }

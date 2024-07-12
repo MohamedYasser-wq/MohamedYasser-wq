@@ -21,7 +21,7 @@ import okhttp3.Response;
 public class UploadImageTask extends AsyncTask<String, Void, String> {
 
     private static final String TAG = "UploadImageTask";
-    private static final String SERVER_URL = "https://6f44-196-154-206-148.ngrok-free.app/cashout";  // Update this with your actual URL
+    private static final String SERVER_URL = "https://affa-154-178-10-123.ngrok-free.app/cashout";  // Update this with your actual URL
     private static final MediaType MEDIA_TYPE_JPG = MediaType.parse("image/jpeg");
 
     private String imagePath;
@@ -56,6 +56,7 @@ public class UploadImageTask extends AsyncTask<String, Void, String> {
         try {
             Response response = client.newCall(request).execute();
             if (!response.isSuccessful()) {
+
                 throw new IOException("Unexpected code " + response);
             }
             return response.body().string();
@@ -76,27 +77,35 @@ public class UploadImageTask extends AsyncTask<String, Void, String> {
                 JSONObject jsonResponse = new JSONObject(result);
 
                 JSONArray dataArray = jsonResponse.getJSONArray("ocr_data");
+                if (dataArray.length() == 1) {
+                    listener.onUploadFailed("WrongImage");
+                } else {
 
-                String firstName = dataArray.getString(0);
-                String secondName = dataArray.getString(1);
-                String nationalId = dataArray.getString(2);
-                String address = dataArray.getString(3);
-                String birthdate = dataArray.getString(4);
-                String gender = dataArray.getString(5);
 
-                // Notify listener
-                listener.onUploadComplete(firstName, secondName, nationalId, address, birthdate, gender);
+                    String firstName = dataArray.getString(0);
+                    String secondName = dataArray.getString(1);
+                    String nationalId = dataArray.getString(2);
+                    String address = dataArray.getString(3);
+                    String birthdate = dataArray.getString(4);
+                    String gender = dataArray.getString(5);
+
+                    // Notify listener
+                    listener.onUploadComplete(firstName, secondName, nationalId, address, birthdate, gender);
+                }
             } catch (JSONException e) {
+                listener.onUploadFailed("WrongImage");
                 Log.e(TAG, "JSON parsing error", e);
             }
-        } else {
+        }
+        else
+        {
             Log.e(TAG, "Failed to upload image");
-            listener.onUploadFailed();
+            listener.onUploadFailed("NetError");
         }
     }
 
     public interface OnUploadCompleteListener {
         void onUploadComplete(String firstName, String secondName, String nationalId, String address, String birthdate, String gender);
-        void onUploadFailed();
+        void onUploadFailed(String errorType);
     }
 }

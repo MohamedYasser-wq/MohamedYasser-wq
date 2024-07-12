@@ -43,7 +43,7 @@ public class LoadingFragment extends Fragment {
                 binding.BtnContinue2.setEnabled(true);
                 binding.BtnContinue2.setBackgroundColor(Color.BLACK);
             }
-        }, 15000);
+        }, 11000);
 
         binding.BtnContinue2.setOnClickListener(new View.OnClickListener() {
             @Override

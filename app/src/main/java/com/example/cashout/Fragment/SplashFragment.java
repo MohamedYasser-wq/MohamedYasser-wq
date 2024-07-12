@@ -34,7 +34,7 @@ public class SplashFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.action_splashFragment_to_loginFragment);
-                SharedPrefrence.firstTimeDone();
+
             }
         });
 

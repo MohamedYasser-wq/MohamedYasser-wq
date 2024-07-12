@@ -49,31 +49,14 @@ public class PhotoFragment extends Fragment implements UploadImageTask.OnUploadC
         binding = FragmentPhotoBinding.inflate(inflater, container, false);
         navController = Navigation.findNavController(container);
 
+        binding.loadingPhotoText.setText(" ");
         binding.BtnOpenCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                binding.loadingPhotoText.setVisibility(View.GONE);
                 openImagePicker();
             }
         });
-
-
-        binding.BtnVerify.setEnabled(false);
-
-
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                binding.BtnVerify.setEnabled(true);
-                binding.BtnVerify.setBackgroundColor(Color.BLACK);
-
-                binding.BtnVerify.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        navController.navigate(R.id.action_photoFragment_to_loadingFragment);
-                    }
-                });
-            }
-        }, 15000);
 
         binding.BtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,14 +83,20 @@ public class PhotoFragment extends Fragment implements UploadImageTask.OnUploadC
                 SharedPrefrence.setImageUri(String.valueOf(imageUri));
                 imagePath = getPathFromUri(imageUri);
                 binding.CapturedImage.setImageURI(imageUri);
+                binding.photoLoading.setVisibility(View.VISIBLE);
+                binding.loadingPhotoText.setVisibility(View.VISIBLE);
                 Log.d(TAG, "Image path: " + imagePath);
+                SharedPrefrence.setImageUri(imagePath);
                 new UploadImageTask(imagePath, this).execute();
+
             } else if (requestCode == CAMERA_REQUEST && data.getExtras() != null) {
                 Bitmap photo = (Bitmap) data.getExtras().get("data");
                 binding.CapturedImage.setImageBitmap(photo);
                 // Save the captured image to a file and get the file path
                 imagePath = saveBitmapToFile(photo);
                 Log.d(TAG, "Image path: " + imagePath);
+                binding.photoLoading.setVisibility(View.VISIBLE);
+                binding.loadingPhotoText.setVisibility(View.VISIBLE);
                 new UploadImageTask(imagePath, this).execute();
             }
         }
@@ -127,8 +116,7 @@ public class PhotoFragment extends Fragment implements UploadImageTask.OnUploadC
     }
 
     private String saveBitmapToFile(Bitmap bitmap) {
-        // Implement the logic to save the Bitmap to a file and return the file path
-        // You can use getExternalFilesDir() to get a directory for saving the file
+
         return null;
     }
 
@@ -149,13 +137,23 @@ public class PhotoFragment extends Fragment implements UploadImageTask.OnUploadC
         Log.d(TAG, "Address: " + address);
         Log.d(TAG, "Birthdate: " + birthdate);
         Log.d(TAG, "Gender: " + gender);
-
+        navController.navigate(R.id.action_photoFragment_to_loadingFragment);
         // Display the data in your UI or take any other necessary actions
     }
 
     @Override
-    public void onUploadFailed() {
-        // Handle the upload failure
+    public void onUploadFailed(String errorMessage) {
+        String messageShowed = "";
+        if(errorMessage.equals("WrongImage")){
+            messageShowed = "Image is bad, please try again.";
+        }else if(errorMessage.equals("NetError")){
+            messageShowed = "Network Error! upload it again";
+        }
+        else{
+            messageShowed = "Unexpected Error";
+        }
+        binding.photoLoading.setVisibility(View.GONE);
+        binding.loadingPhotoText.setText(messageShowed);
         Log.e(TAG, "Image upload failed");
     }
 }

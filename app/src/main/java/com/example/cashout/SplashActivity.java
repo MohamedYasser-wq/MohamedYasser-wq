@@ -21,6 +21,7 @@ public class SplashActivity extends AppCompatActivity {
 
         setContentView(bind.getRoot());
         SharedPrefrence.init(this);
+
         if(!SharedPrefrence.isFirstTime()){
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);

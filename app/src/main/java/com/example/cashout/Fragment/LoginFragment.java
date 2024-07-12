@@ -85,17 +85,21 @@ public class LoginFragment extends Fragment {
     private void Login(RequestLogin request)
     {
         authenticationViewModel.login(request);
-        authenticationViewModel.mutableLiveData1.observe(this, new Observer<ResponseLogin>() {
+        authenticationViewModel.mutableLiveDataLoginSuccess.observe(this, new Observer<ResponseLogin>() {
             @Override
             public void onChanged(ResponseLogin responseLogin) {
-                Log.e("TAG", "onChanged: Done ");
+
+               Log.e("TAG", "onChanged: Done ");
+               SharedPrefrence.setUserToken(responseLogin.getAccessToken());
+               navController.navigate(R.id.action_loginFragment_to_homeFragment);
 
             }
         });
-        authenticationViewModel.mutableLiveDataError1.observe(this, new Observer<String>() {
+        authenticationViewModel.mutableLiveDataLoginError.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 Log.e("TAG", "onChanged: Error ");
+                Toast.makeText(getContext(), "SomeThing Wrong!!!", Toast.LENGTH_SHORT).show();
             }
         });
 
